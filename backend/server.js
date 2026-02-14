@@ -10,6 +10,7 @@ import historyRouter from './routes/historyRouter.js';
 //APP CONFIG
 const app = express();
 const port = process.env.PORT || 4000
+const FrontEnd = process.env.FRONT_END_URL
 
 connectDB();
 
@@ -17,7 +18,10 @@ connectDB();
 app.use(express.json())
 
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend
+  origin: [
+    "http://localhost:5173",            // local frontend
+    FrontEnd                           // <-- replace with your frontend Vercel URL
+  ],
   credentials: true
 }))
 
@@ -32,5 +36,6 @@ app.use('/api/history',historyRouter);
 app.get('/',(req,res)=>{
     res.send("API working sir")
 })
+
 
 export default app;
