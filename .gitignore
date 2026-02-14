@@ -1,0 +1,20 @@
+# Node
+node_modules/
+
+# Env files (ALL env files everywhere)
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Logs
+logs
+*.log
+
+# Build
+dist
+build
+
+# OS
+.DS_Store
+desktop.ini
